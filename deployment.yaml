@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gracieux-app
+  labels:
+    app: gracieux-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gracieux-app
+  template:
+    metadata:
+      labels:
+        app: gracieux-app
+    spec:
+      containers:
+      - name: simple-node
+        image: gracieuxsikuly/simple-node
+        ports:
+        - containerPort: 8088
